@@ -1,26 +1,34 @@
 package zooGame;
 
+import javax.swing.ImageIcon;
+
 public class ForestAnimal extends Animal {
 
-    //Klassenvariabeln
+    // Klassenvariabeln
     public static int startFeedingCosts = 20;
+    private String picturepath;
 
-    //Konstruktor
+    // Konstruktor
     public ForestAnimal(String name) {
         super(name);
         calculateFeedingcosts();
     }
 
-    //Methoden
+    // Methoden
     @Override
     public void chooseImage(Animal animal) {
-        // TODO choose right image see name of animal
+        if (animal.getName().equals("Hirsch")) {
+            picturepath = "/images/hirsch.png";
+            animal.setImage(new ImageIcon(picturepath));
+        } else {
+            picturepath = "/images/wildschwein.png";
+            animal.setImage(new ImageIcon(picturepath));
+        }
     }
 
     @Override
     public void calculateFeedingcosts() {
-        // TODO see level see startFeedingCosts calculate and set feedingcosts new
+        setFeedingcosts(getFeedingcosts() + (startFeedingCosts * 1));
     }
-
 
 }

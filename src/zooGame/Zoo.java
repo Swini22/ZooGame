@@ -5,11 +5,12 @@ import java.util.ArrayList;
 public class Zoo {
     //Instanzvariablen
     private ArrayList<Cage> cages = new ArrayList<Cage>();
+    private int moneyPerMinute = 1;
 
     //Konstruktor
     public Zoo() {
         super();
-        new User(this);
+        User user = new User(this);
     }
     
     //Getter / Setter
@@ -20,9 +21,18 @@ public class Zoo {
     public void setCages(ArrayList<Cage> cages) {
         this.cages = cages;
     }
+    
+
+    public int getMoneyPerMinute() {
+        return moneyPerMinute;
+    }
+
+    public void setMoneyPerMinute(int moneyPerMinute) {
+        this.moneyPerMinute = moneyPerMinute;
+    }
 
     //Main Methode
     public static void main(String[] args) {
-        new Zoo();
+        Zoo zoo = new Zoo();
     }
 }

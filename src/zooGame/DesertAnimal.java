@@ -1,25 +1,42 @@
 package zooGame;
 
-public class DesertAnimal extends Animal {
-    
-    //Klassenvariabeln
-    public static int startFeedingCosts = 100;
+import javax.swing.ImageIcon;
 
-    //Konstruktor
+public class DesertAnimal extends Animal {
+
+    // Klassenvariabeln
+    public static final int startFeedingCosts = 100;
+    
+    
+    // Instanzvariabeln
+    private String picturepath;
+
+    // Konstruktor
     public DesertAnimal(String name) {
         super(name);
         calculateFeedingcosts();
     }
 
-    //Methoden
+    // Methoden
     @Override
     public void chooseImage(Animal animal) {
-        // TODO choose right image see name of animal
+        try {
+            if (animal.getName().equals("Schlange")) {
+                picturepath = "/images/schlange.png";
+                animal.setImage(new ImageIcon(picturepath));
+            } else {
+                picturepath = "/images/lion.png";
+                animal.setImage(new ImageIcon(picturepath));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void calculateFeedingcosts() {
-        // TODO see level see startFeedingCosts calculate and set feedingcosts new
+        setFeedingcosts(getFeedingcosts() + (startFeedingCosts * 2));
     }
 
 }

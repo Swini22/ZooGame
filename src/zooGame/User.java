@@ -2,8 +2,10 @@ package zooGame;
 
 import java.util.ArrayList;
 
+import view.StartScreen;
+
 public class User {
-    private int money;
+    private int money = 0;
     private Zoo zoo;
     
 
@@ -11,6 +13,7 @@ public class User {
     public User(Zoo zoo) {
         super();
         this.zoo = zoo;
+        StartScreen startScreen = new StartScreen(this);     
     }
   
     //Getter / Setter
@@ -21,6 +24,15 @@ public class User {
     public void setMoney(int money) {
         this.money = money;
     }
+    
+    public Zoo getZoo() {
+        return zoo;
+    }
+
+    public void setZoo(Zoo zoo) {
+        this.zoo = zoo;
+    }
+
 
     //Methoden
     public void feed(Animal animal){
